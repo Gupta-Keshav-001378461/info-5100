@@ -5,19 +5,40 @@
  */
 package Interface;
 
+import Business.VitalSignHistory;
+import Business.VitalSigns;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author keshav
  */
+
 public class ViewVitalsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ViewVitalsJPanel
      */
-    public ViewVitalsJPanel() {
+    private VitalSignHistory vsh;
+     public ViewVitalsJPanel(VitalSignHistory vsh) {
         initComponents();
+        this.vsh = vsh;
+        populateTable();
     }
-
+      public void populateTable(){
+       
+        DefaultTableModel dtm = (DefaultTableModel)tblVitalSigns.getModel();
+        dtm.setRowCount(0);
+        
+        for(VitalSigns vs : vsh.getVitalSignHistory()){
+            
+            Object row[] = new Object[2];
+            row[0] = vs;
+            row[1] = vs.getBloodPressure();
+            dtm.addRow(row);
+         }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

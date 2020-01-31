@@ -1,5 +1,5 @@
 package vitalSigns;
-
+import java.util.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,6 +25,7 @@ public class Patient {
         this.bloodPressure = bloodPressure;
         this.weightInKilos = weightInKilos;
         this.weightInPounds = weightInPounds;
+       ;
     }
 
     public int getAgeGroup() {

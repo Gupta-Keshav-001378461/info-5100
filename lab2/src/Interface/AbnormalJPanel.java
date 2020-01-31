@@ -5,6 +5,11 @@
  */
 package Interface;
 
+import Business.VitalSignHistory;
+import Business.VitalSigns;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author keshav
@@ -14,10 +19,31 @@ public class AbnormalJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AbnormalJPanel
      */
-    public AbnormalJPanel() {
+      private VitalSignHistory vsh;
+    private double max;
+    private double min;
+    public AbnormalJPanel(VitalSignHistory vsh, double maxBP, double minBP) {
         initComponents();
+        this.vsh = vsh;
+        this.max = maxBP;
+        this.min = minBP;
+        populateTable();
     }
-
+ private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel)tblAbnVitalSigns.getModel();
+        dtm.setRowCount(0);
+        
+//        System.out.println(max + " " + min);
+        for(VitalSigns vs : vsh.getAbnormalList(max, min)){
+            if(vs.getBloodPressure()<min || vs.getBloodPressure()>max){
+            Object[] row = new Object[2];
+            row[0] = vs;
+            row[1] = vs.getBloodPressure();
+            dtm.addRow(row);
+            }
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

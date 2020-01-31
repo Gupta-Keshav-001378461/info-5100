@@ -206,6 +206,7 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
             txtTemperature.setText(String.valueOf(vs.getTemperature()));
             txtPulse.setText(String.valueOf(vs.getPulse()));
             txtDate.setText(vs.getDate());
+            
         }else{
             JOptionPane.showMessageDialog(null, "Please select any Row");
         }
@@ -236,27 +237,22 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-         double temperature = Double.parseDouble(txtTemperature.getText()) ;
+       int selectedrow = tblVitalSigns.getSelectedRow();
+        double temperature = Double.parseDouble(txtTemperature.getText()) ;
         double bp = Double.parseDouble(txtBloodPressure.getText());
         int pulse = Integer.parseInt(txtPulse.getText());
-        String date = txtDate.getText();
-
-        VitalSigns v = vsh.addVitals();
-
-        v.setBloodPressure(bp);
-        v.setTemperature(temperature);
-        v.setPulse(pulse);
-        v.setDate(date);
-
-        JOptionPane.showMessageDialog(null, "VitalSigns Added Successfully");
-
-        txtBloodPressure.setText("");
-        txtDate.setText("");
-        txtPulse.setText("");
-        txtTemperature.setText("");
-// TODO add your handling code here:
+          String date = txtDate.getText();
+     DefaultTableModel dtm = (DefaultTableModel)tblVitalSigns.getModel();
+     if(selectedrow>=0){
+         dtm.setValueAt(date,selectedrow,0);
+         dtm.setValueAt(bp,selectedrow,1);
+         JOptionPane.showMessageDialog(null, "update Successfull");
+     }
+     else{
+         JOptionPane.showMessageDialog(null, "please select a row");
+     }
     }//GEN-LAST:event_btnConfirmActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;

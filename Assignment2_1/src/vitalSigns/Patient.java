@@ -103,15 +103,15 @@ public class Patient {
   }
  
     
-  System.out.print("Respiratory Rate : ");
+  System.out.print(" Enter the Respiratory Rate : ");
   p1.respiratoryRate=sc.nextInt();
-  System.out.print("Heart Rate: ");
+  System.out.print("Enter the Heart Rate: ");
   p1.heartRate=sc.nextInt();
-  System.out.println("Blood Pressure: ");
+  System.out.println("Enter the Blood Pressure: ");
  p1.bloodPressure=sc.nextInt();
-  System.out.print("Weight in Kilos: ");
+  System.out.print("Enter the Weight in Kilos: ");
   p1.weightInKilos=sc.nextInt();
-  System.out.print("Weight in Pounds: ");
+  System.out.print("Enter the Weight in Pounds: ");
   p1.weightInPounds=sc.nextInt();
 boolean result= p1. isPatientNormal(p1.ageGroup, p1.respiratoryRate, p1.heartRate, p1.bloodPressure, p1.weightInKilos, p1.weightInPounds);
     System.out.println("Patient vitals are" + " "+ result);

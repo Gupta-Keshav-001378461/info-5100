@@ -242,11 +242,12 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
         double bp = Double.parseDouble(txtBloodPressure.getText());
         int pulse = Integer.parseInt(txtPulse.getText());
           String date = txtDate.getText();
-     DefaultTableModel dtm = (DefaultTableModel)tblVitalSigns.getModel();
+   
      if(selectedrow>=0){
-         dtm.setValueAt(date,selectedrow,0);
-         dtm.setValueAt(bp,selectedrow,1);
-         JOptionPane.showMessageDialog(null, "update Successfull");
+   v.setBloodPressure(bp);
+        v.setTemperature(temperature);
+        v.setPulse(pulse);
+        v.setDate(date);
      }
      else{
          JOptionPane.showMessageDialog(null, "please select a row");

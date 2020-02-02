@@ -69,6 +69,8 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 255));
         jLabel1.setText("View Vital Sign");
 
         btnView.setText("View Vital Sign");
@@ -96,12 +98,16 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblVitalSigns);
 
+        lblTemp.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTemp.setText("Temperature");
 
+        lblBloodTem.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblBloodTem.setText("Blood Pressure");
 
+        lblPulse.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblPulse.setText("Pulse");
 
+        lblDate.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblDate.setText("Date");
 
         txtTemperature.setEnabled(false);
@@ -160,7 +166,7 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
                             .addComponent(btnView)
                             .addGap(18, 18, 18)
                             .addComponent(btnDelete))))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +198,7 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(btnConfirm)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -237,21 +243,24 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-       int selectedrow = tblVitalSigns.getSelectedRow();
         double temperature = Double.parseDouble(txtTemperature.getText()) ;
         double bp = Double.parseDouble(txtBloodPressure.getText());
         int pulse = Integer.parseInt(txtPulse.getText());
-          String date = txtDate.getText();
-   
-     if(selectedrow>=0){
-   v.setBloodPressure(bp);
+        String date = txtDate.getText();
+
+        VitalSigns v = vsh.addVitals();
+
+        v.setBloodPressure(bp);
         v.setTemperature(temperature);
         v.setPulse(pulse);
         v.setDate(date);
-     }
-     else{
-         JOptionPane.showMessageDialog(null, "please select a row");
-     }
+
+        JOptionPane.showMessageDialog(null, "VitalSigns Added Successfully");
+
+        txtBloodPressure.setText("");
+        txtDate.setText("");
+        txtPulse.setText("");
+        txtTemperature.setText("");
     }//GEN-LAST:event_btnConfirmActionPerformed
     
 

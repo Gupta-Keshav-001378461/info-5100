@@ -45,14 +45,21 @@ public class CreateVitalJPanel extends javax.swing.JPanel {
         txtDate = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
 
+        jLabel1.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 255));
         jLabel1.setText("Create Vital Signs");
 
+        lblTemp.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblTemp.setText("Temperature");
 
+        lblBloodTem.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblBloodTem.setText("Blood Pressure");
 
+        lblPulse.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblPulse.setText("Pulse");
 
+        lblDate.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblDate.setText("Date");
 
         btnSave.setText("Save");
@@ -84,7 +91,7 @@ public class CreateVitalJPanel extends javax.swing.JPanel {
                                 .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +116,7 @@ public class CreateVitalJPanel extends javax.swing.JPanel {
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnSave)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
